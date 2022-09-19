@@ -1,0 +1,385 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+/* This changes all the animations globally */
+/* :root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.9s;
+} */
+
+/* color pallete */
+:root {
+  --main-color: #ffb3b3;
+  --primary-color: #ff6666;
+  --dark-hover: #ff4d4d;
+  --hover: #ff9999;
+  --light-white: #fff6eb;
+  --light-gray: #ccc;
+  --black: #13131a;
+  --white: #fff;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: 0.2s linear;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+/* set scrollbar style */
+html::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+html::-webkit-scrollbar-trak {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--main-color);
+}
+
+/* public class */
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  border: 0.2rem solid var(--main-color);
+  border-radius: 2rem;
+  background: var(--primary-color);
+  color: var(--white);
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.btn:hover {
+  background: var(--light-white);
+  color: var(--primary-color);
+}
+
+.heading {
+  margin-top: 2rem;
+  /*   text-align: center; */
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  color: var(--main-color);
+}
+
+.heading::after {
+  content: "";
+  margin: 0.2rem;
+  display: block;
+  width: 8rem;
+  background-color: var(--main-color);
+  border: 0.3rem solid var(--main-color);
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+}
+/* preloader */
+#preloader {
+  visibility: hidden;
+  background: #ecf0f1;
+  width: 100%;
+  top: 0;
+  height: 100vh;
+  position: fixed;
+  z-index: 15;
+}
+#preloader.display {
+  visibility: visible;
+}
+.load {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*change these sizes to fit into your project*/
+  width: 150px;
+  height: 150px;
+}
+.load hr {
+  border: 0;
+  margin: 0;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  border-radius: 50%;
+  animation: spin 2s ease infinite;
+}
+
+.load :first-child {
+  background: #19a68c;
+  animation-delay: -1.5s;
+}
+.load :nth-child(2) {
+  background: #f63d3a;
+  animation-delay: -1s;
+}
+.load :nth-child(3) {
+  background: #fda543;
+  animation-delay: -0.5s;
+}
+.load :last-child {
+  background: #193b48;
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(160%);
+  }
+  50% {
+    transform: translate(160%, 160%);
+  }
+  75% {
+    transform: translate(0, 160%);
+  }
+}
+/* upload */
+.upload-area {
+  background-color: var(--light-white);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 30px 22px;
+  width: 47%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.upload-area .upload-header {
+  align-self: baseline;
+  padding: 0 0 20px;
+  font-size: 23px;
+  text-transform: capitalize;
+}
+.upload-area .drag-area {
+  padding: 20px 0;
+  border: 2px dashed var(--light-gray);
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.upload-area .drag-area.active {
+  /*   border: 2px solid var(--white); */
+  border: none;
+}
+.upload-area .drag-area .icon {
+  font-size: 100px;
+  color: var(--primary-color);
+}
+.upload-area .drag-area header {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+.upload-area .drag-area span {
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin: 10px 0 15px 0;
+}
+.upload-area .drag-area button {
+  margin-bottom: 10px;
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: var(--primary-color);
+  color: var(--light-white);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.upload-area .drag-area button:hover {
+  background: var(--dark-hover);
+  color: var(--white);
+}
+.upload-area .drag-area .support,
+.upload-area .drag-area .support > span {
+  font-size: 17px;
+  color: var(--gray);
+  text-transform: capitalize;
+}
+.upload-area .drag-area .support > span {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.upload-area .drag-area img {
+  /*   height: 100%;
+  width: 100%; */
+  min-height: 348px;
+  max-height: 348px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.upload-area .upload-btn {
+  margin-top: 20px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 18px;
+  background: var(--main-color);
+  padding: 9px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--black);
+  width: 200px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /*rtl*/
+}
+.upload-area .upload-btn:hover {
+  background: var(--hover);
+  color: var(--white);
+}
+
+/* result  */
+
+/* start result design */
+.result {
+  min-height: 150vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--main-color);
+}
+.result .container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 25px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.result .container .vr-line {
+  position: absolute;
+  width: 370px;
+  height: 150vh;
+  background-color: var(--light-white);
+  top: 0;
+  left: 29%;
+  z-index: 1;
+}
+.result .container .left {
+  position: relative;
+  top: 50px;
+  left: 80px;
+  width: 90%;
+  height: 450px;
+  /* background: url(https://i.pinimg.com/564x/7f/dd/76/7fdd76af700e8cdd06583ea3d70817b7.jpg) */
+    /* no-repeat center / cover; */
+  border-radius: 8px;
+  z-index: 5;
+}
+.result .container .left::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -40px;
+  width: 120px;
+  height: 120px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+.result .container .right {
+  position: relative;
+  top: 250px;
+  width: 70%;
+  min-height: 200px;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 8px;
+  color: white;
+  margin-left: -250px;
+  z-index: 10;
+}
+.result .container .right .content {
+  width: 100%;
+  padding: 10px;
+}
+.result .container .right .content h1 {
+  font-size: 40px;
+  font-weight: 400;
+}
+.result .container .right .content p {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+/* media queries */
+@media (max-width: 1090px) {
+  .upload-area {
+    width: 80%;
+  }
+  .upload-area .drag-area img {
+    min-height: 350px;
+    max-height: 350px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .result .container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0 20px;
+  }
+  .result .container .vr-line {
+    left: auto;
+    right: auto;
+  }
+  .result .container .left {
+    width: 100%;
+    height: 400px;
+    left: 0;
+  }
+  .result .container .left::before {
+    left: -12px;
+    width: 100px;
+    height: 100px;
+  }
+  .result .container .right {
+    width: 90%;
+    margin: 0;
+    margin-top: -100px;
+    top: 80px;
+  }
+}
+
+#result {
+  display: none;
+}

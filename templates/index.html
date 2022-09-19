@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breast Cancer</title>
+
+  <!-- Stylesheet CSS  -->
+  <link rel="stylesheet" href="{{ url_for('static',path='css/style.css') }}">
+
+  <!-- AOS animation stylesheet -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> -->
+  
+  <!-- animate.css  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" integrity="sha512-doJrC/ocU8VGVRx3O9981+2aYUn3fuWVWvqLi1U+tA2MWVzsw+NVKq1PrENF03M+TYBP92PnYUlXFH1ZW0FpLw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  
+
+</head>
+<body>
+  <!-- preloader -->
+  <div id="preloader">
+    <div class="load">
+      <hr/><hr/><hr/><hr/>
+    </div>
+  </div>
+
+  <!-- upload -->
+  <div class="upload-area" id="scan">
+    <p class="upload-header">upload your file:</p>
+    <div class="drag-area">
+        <div class="icon"><i class="fas fa-images"></i></div>
+        <header>Drag & Drop to Upload File</header>
+        <span>OR</span>
+        <button>Browse File</button>
+      <p class="support">supports: <span>jpeg</span>,<span>jpg</span>,<span>png</span></p>
+      <input type="file" id="fileInput" accept="image/*" hidden>
+    </div>
+    <button type="submit" class="upload-btn" onclick="uploadFile();">upload file </button>
+  </div>
+  <!-- end Upload -->
+
+
+  <!-- result  -->
+  <section class="result" id="result">
+    <div class="container">
+      <div class="vr-line"></div>
+      <div class="left animate__fadeInUp animate__infinite" id="image"></div>
+      <div class="right animate__fadeInRight animate__infinite">
+        <div class="content">
+          <h1 class="heading">the result</h1>
+          <p class="status" id="serverMsg"></p>
+          <p class="server-msg" id="resultAdvice"></p>
+          <a href="#" class="btn" onclick="tryAgain();">Try Again</a>
+          <a href="#" class="btn" >doctors Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end result -->
+
+  
+  <!-- AOS animation script  -->
+  <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script type="text/javascript">
+    // init AOS
+    AOS.init();
+  </script> -->
+
+  <!--upload Script  --> 
+  <script src="{{ url_for('static',path='js/upload.js') }}"></script>
+
+  <!-- api script  -->
+  <!-- <script src="{{ url_for('static',path='js/main.js') }}"></script> -->
+
+</body>
+</html>
